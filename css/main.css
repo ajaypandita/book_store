@@ -1,0 +1,265 @@
+#sideNav {
+    display: flex;
+    flex-direction: column;
+        /* outline: 1px solid #444; */
+}
+#sideNavIcon {
+    /* outline: 1px solid #444; */
+    height: 200px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sideNavList {
+    flex-grow: 1;
+    /* outline: 1px solid #777; */
+}
+#sideNavFooter {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    /* outline: 1px solid #0aa; */
+}
+
+#sideNavIcon p {
+    font:30px "Mali";
+}
+#sideNavIcon p span {
+    font:30px "Mali";
+    padding: 7px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    background-color: #0077b5;
+    color: #fff;
+}
+#sideNavList ul {
+}
+#sideNavList li {
+    border: 0;
+    margin: 0 auto;
+    width: 200px;
+    font:17px "Rokkitt";
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+}
+#sideNavList li:hover::before {
+    position: absolute;
+    left: 0;
+    top: 11px;
+    content: '\f105';
+    font: 16px "FontAwesome";
+    display: block;
+}
+#sideNavFooter button {
+    background-color: #0077b5;
+    color: #fff;
+    margin: 0px auto 0px;
+    display: block;
+    cursor: pointer;
+    width: 250px;
+}
+#sideNavFooter button:first-child {
+    border:2px solid #0077b5;
+    color: #0077b5;
+    background-color: #fff;
+}
+#sideNavFooter button:first-child i {
+    font-size: 20px;
+}
+#sideNavFooter button i {
+    margin-right: 10px;
+    font-size: 26px;
+}
+
+#sideNavFooter ul {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-direction: row !important;
+}
+#sideNavFooter li {
+    border-radius: 100%;
+    background-color: #eee;
+    display: initial;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all linear .2s;
+}
+#sideNavFooter li:hover {
+    color: #fff;
+    background-color: #0077b5;
+}
+
+
+#mainContainer {
+    overflow-y: scroll;
+}
+.gridViewList {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.gridViewList li {
+    flex-grow: 1;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    /* outline: 1px solid #000; */
+}
+.gridViewList li .back-layer {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.gridViewList li .front-layer {
+    background-color: #fffa;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    transition: opacity linear .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gridViewList li:hover .front-layer {
+    opacity: 1;
+}
+.gridViewList li .front-layer h3 {
+    color: #000;
+    margin-bottom: 20px;
+    font:27px "Roboto";
+    position: relative;
+}
+.gridViewList li .front-layer h3::before {
+    position: absolute;
+    content: '';
+    display: block;
+    left: -10px;
+    top: 0;
+    width: 5px;
+    height: 30px;
+    background-color: #0077b5;
+}
+#mainContainerFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mainContainerFooter p {
+    font: 20px "Roboto";
+    padding: 20px;
+}
+
+#mainCategory,#subCategory {
+    transition: all linear .3s;
+}
+#subCategory {
+
+}
+#subCategoryList {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+}
+#subCategoryList ul {
+    list-style: none;
+}
+#subCategoryList li {
+    color: #666;
+    cursor: pointer;
+    font:18px "Roboto";
+    padding: 10px;
+    position: relative;
+}
+#subCategoryList li:hover {
+    color: #444;
+}
+#subCategoryList li::before {
+    position: absolute;
+    display: block;
+    content: '\f105';
+    left: -5px;
+    top: 10px;
+    font:20px "FontAwesome";
+}
+#subCategoryList p {
+    color: #444;
+    padding: 10px 5px;
+    margin-top: 20px;
+    font: 20px "Roboto";
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#subCategory {
+    position: relative;
+}
+#subCategoryExpand {
+    position: relative;
+    padding-left: 0;
+    overflow-y: scroll;
+}
+#subCategoryExpand .gridViewList li {
+    width: 250px;
+    height: 300px;
+}
+
+#loginForm,#registerForm {
+    border-radius: 30px;
+    background-color: #fff;
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 0 0 19px -10px #000;
+    display: flex;
+    flex-direction: column;
+}
+#loginForm input,#registerForm input {
+    width: 350px;
+    margin: 0 auto 10px;
+    border-radius: 30px;
+    background-color: #eee;
+    color: #444;
+    border: 1px solid #fff;
+    padding: 20px;
+}
+#loginForm input:focus,#registerForm input:focus {
+    box-shadow: 0;
+    outline: 0;
+}
+#loginForm input[type=submit],#registerForm input[type=submit] {
+    background-color: #0077b5;
+    color: #fff;
+    cursor: pointer;
+    font:20px "Roboto";
+}
+#loginForm h3,#registerForm h3 {
+    text-align: center;
+    margin: 0 0 30px;
+}
+#registerForm {
+    width: 800px;
+}
