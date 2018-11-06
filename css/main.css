@@ -130,13 +130,13 @@
     background-size: cover;
 }
 .gridViewList li .front-layer {
-    background-color: #fffa;
+    background-color: #fff8;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    opacity: 1;
     cursor: pointer;
     transition: opacity linear .2s;
     display: flex;
@@ -225,6 +225,9 @@
 #subCategoryExpand .gridViewList li {
     width: 250px;
     height: 300px;
+}
+#subCategoryExpand .gridViewList li h3 {
+    font-size:16px;
 }
 
 #loginForm,#registerForm {
