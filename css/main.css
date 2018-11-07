@@ -56,13 +56,12 @@
     display: block;
 }
 #sideNavFooter button {
-    background-color: #0077b5;
-    color: #fff;
-    margin: 0px auto 0px;
     display: block;
     cursor: pointer;
-    width: 250px;
+    width: 80%;
+    margin: 0 auto 20px;
 }
+/*
 #sideNavFooter button:first-child {
     border:2px solid #0077b5;
     color: #0077b5;
@@ -74,7 +73,7 @@
 #sideNavFooter button i {
     margin-right: 10px;
     font-size: 26px;
-}
+} */
 
 #sideNavFooter ul {
     display: flex;
@@ -103,9 +102,11 @@
 
 
 #mainContainer {
+    box-shadow: 5px 0px 19px -10px #000 inset;
+    background-color: #eee;
     overflow-y: scroll;
 }
-.gridViewList {
+/* .gridViewList {
     margin-left: 0;
     padding-left: 0;
     list-style: none;
@@ -115,10 +116,10 @@
 }
 .gridViewList li {
     flex-grow: 1;
-    width: 300px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
     position: relative;
-    /* outline: 1px solid #000; */
+    /* outline: 1px solid #000;
 }
 .gridViewList li .back-layer {
     width: 100%;
@@ -162,7 +163,7 @@
     width: 5px;
     height: 30px;
     background-color: #0077b5;
-}
+} */
 #mainContainerFooter {
     display: flex;
     align-items: center;
@@ -265,4 +266,101 @@
 }
 #registerForm {
     width: 800px;
+}
+
+#subCategoryExpand .gridViewList li {
+    width: initial;
+    height: initial;
+    padding: 30px;
+    margin: 10px;
+    transition: all linear .3s;
+}
+#subCategoryExpand .gridViewList li:hover {
+    box-shadow: 0 0 10px #000;
+}
+
+.loader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: #fffe;
+}
+.loader-1 {
+    width: 100%;
+}
+.loader img,.loader-1 img {
+    width: 100px;
+}
+.loader h1,.loader-1 h1 {
+    color:#555;
+}
+
+
+#bookDetails {
+    margin: 20px;
+}
+#bookDetailsImages {
+    padding: 5px;
+    background-color: #fff;
+}
+#bookDetailsMainImg {
+    width: 100%;
+}
+#bookDetailsRight {
+    background-color: #fff;
+    margin-left: 20px;
+}
+#bookDetails table tr td:first-child {
+    /* background-color: #eee; */
+}
+body #bookDetails table tr td:nth-child(2) {
+    color: #444 !important;
+}
+#bookDetailsImg2,#bookDetailsImg1 {
+    cursor: pointer;
+    max-height: 250px;
+}
+#sellBookContainer {
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+}
+
+
+
+.gridViewList {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+}
+.gridViewList .back-layer {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+}
+.gridViewList .front-layer {
+    padding: 10px;
+    background-color: #fff;
+}
+.gridViewList li {
+    box-shadow: 0 5px 19px -10px #000;
+    width: calc(25% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: all linear .2s;
+    cursor: pointer;
+}
+.gridViewList li:hover {
+    box-shadow: none;
+}
+.gridViewList h3 {
+    font-size: 17px;
+}
+.gridViewList2 {
+    display: flex;
+    flex-wrap: wrap;
 }

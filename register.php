@@ -8,6 +8,10 @@
     <title>Book Worm | Register</title>
 </head>
 <body style="background-color:#eee">
+    <div class="loader d-flex justify-content-center align-items-center flex-column">
+        <img src="/images/loader.gif">
+        <h1>Loading</h1>
+    </div>
     <div class="container">
         <div id="sideNavIcon">
             <p>Book <span>Worm</span></p>
@@ -19,7 +23,7 @@
                     <input type="text" placeholder="Full Name" id='loginFullName' required>
                     <input type="text" placeholder="Address" id='loginAddress' required>
                     <input type="text" placeholder="State" id='loginState' required>
-                    <input type="number" placeholder="Pincode" id='loginPincode' min="0" required>
+                    <input type="number" placeholder="Pincode" id='loginPincode' min="0" pattern="[0-9]{6}" required>
                 </div>
                 <div class="col-xl-6 col-md-6">
                     <input type="number" placeholder="Phone Number" id='loginPhone' pattern="[0-9]{10,}" min="0" required>
@@ -43,11 +47,15 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+    <script src="/js/auth.js"></script>
     <script>
     $(document).ready(function() {
         var _email=_fullname=_address=_phone=_pincode=_state="";
         $("form").submit(function(_event) {
             _event.preventDefault();
+            console.log("removing style");
+            $(".loader h1").text("Registering you on BookWorm..");
+            $(".loader").removeAttr("style");
             var _email = $("#loginEmail").val();
             var _password =$("#loginPassword").val();
             var _rpassword =$("#loginRpassword").val();
@@ -58,8 +66,16 @@
             var _phone =$("#loginPhone").val();
             if(_password.trim()!==_rpassword.trim()) {
                 alert("Password don't match!");
+                $(".loader").attr("style","display: none !important");
             } else if(_pincode <0 || _phone < 0) {
                 alert("Invalid values");
+                $(".loader").attr("style","display: none !important");
+            } else if(_phone.length !== 10){
+                alert("Invalid phone number");
+                $(".loader").attr("style","display: none !important");
+            } else if(_pincode.length!==6){
+                alert("Invalid pincode");
+                $(".loader").attr("style","display: none !important");
             } else if(_email.trim()!=="" && _password.trim()!="" && _fullname.trim()!="" && _phone.trim()!="" && _address.trim()!="" && _state.trim()!="" && _pincode.trim()!="") {
                 firebase.auth().createUserWithEmailAndPassword(_email,_password).then(function(_user) {
                     console.log("Updating")
@@ -75,33 +91,18 @@
                             "state":_state,
                             "pincode":_pincode
                     };
-                    database.ref().child("Users").child(_email).child("details").set(_user);
+                    database.ref().child("users").child(_email).child("details").set(_user);
+                    $(".loader").attr("style","display: none !important");
                 }).catch(function(_error1) {
                     if(_error1.message != "") {
                         console.log("Error : " + _error1.message);
-                        alert("Server error! Try again later.")
+                        $(".loader").attr("style","display: none !important");
+                        alert("User already exists!")
                     }
                 });
             } else {
+                $(".loader").attr("style","display: none !important");
                 alert("Empty fields");
-            }
-        });
-        var config = {
-            apiKey: "AIzaSyDxvjhbCr8rYVWa_XkZiW4ifc-TNEsYnkE",
-            authDomain: "book-worm-5404b.firebaseapp.com",
-            databaseURL: "https://book-worm-5404b.firebaseio.com",
-            projectId: "book-worm-5404b",
-            storageBucket: "book-worm-5404b.appspot.com",
-            messagingSenderId: "274246668092"
-        };
-        firebase.initializeApp(config);
-        var database = firebase.database();
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                console.log("User is logged in | " + user);
-                location.href = "/";
-            } else {
-                console.log("User is logged out")
             }
         });
     });

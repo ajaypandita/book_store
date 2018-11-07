@@ -8,6 +8,10 @@
     <title>Book Worm | Login</title>
 </head>
 <body style="background-color:#eee">
+    <div class="loader d-flex justify-content-center align-items-center flex-column">
+        <img src="/images/loader.gif">
+        <h1>Loading</h1>
+    </div>
     <div class="container">
         <div id="sideNavIcon">
             <p>Book <span>Worm</span></p>
@@ -17,6 +21,7 @@
             <input type="email" placeholder="Email ID" id='loginEmail'>
             <input type="password" placeholder="Password" id='loginPassword'>
             <input type="submit" value="Login" id='loginBtn'>
+            <a class="text-center" href="/register.php">Not a member yet? Register now.</a>
         </form>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,9 +36,12 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+    <script src="/js/auth.js"></script>
     <script>
     $(document).ready(function() {
         $("form").submit(function(_event) {
+            $(".loader h1").text("Logging you in...");
+            $(".loader").removeAttr("style");
             _event.preventDefault();
             var _email = $("#loginEmail").val();
             var _password =$("#loginPassword").val();
@@ -42,29 +50,13 @@
                     var _errorCode = _error.code;
                     var _errorMessage = _error.message;
                     if (_error.message != "") {
+                        $(".loader").attr("style","display: none !important");
                         alert("Invalid Username/Password combination.")
                     }
                 });
             } else {
+                $(".loader").attr("style","display: none !important");
                 alert("Empty fields");
-            }
-        });
-        var config = {
-            apiKey: "AIzaSyDxvjhbCr8rYVWa_XkZiW4ifc-TNEsYnkE",
-            authDomain: "book-worm-5404b.firebaseapp.com",
-            databaseURL: "https://book-worm-5404b.firebaseio.com",
-            projectId: "book-worm-5404b",
-            storageBucket: "book-worm-5404b.appspot.com",
-            messagingSenderId: "274246668092"
-        };
-        firebase.initializeApp(config);
-        var database = firebase.database();
-        firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                console.log("User is logged in | " + user)
-                location.href = "/";
-            } else {
-                console.log("User is logged out")
             }
         });
     });
