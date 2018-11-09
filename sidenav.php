@@ -1,5 +1,5 @@
 <div class="col-lg-3 col-md-3" id="sideNav">
-    <div id="sideNavIcon">
+    <div id="sideNavIcon" onclick="location.href='index.php'" style="cursor:pointer">
         <p>Book <span>Worm</span></p>
     </div>
     <div id="sideNavList" style="position:relative">
@@ -7,7 +7,7 @@
             <li class="list-group-item" onclick="location.href='/index.php'"><i class="fa fa-home"></i> Home</li>
             <li class="list-group-item" onclick="location.href='/mybooks.php'"><i class="fa fa-book"></i> My Books</li>
             <li class="list-group-item" onclick="location.href='/search.php'"><i class="fa fa-search"></i> Search</li>
-            <li class="list-group-item" onclick="location.href='/'"><i class="fa fa-user"></i> About Us</li>
+            <li class="list-group-item" onclick="location.href='/about.php'"><i class="fa fa-user"></i> About Us</li>
         </ul>
         <h5 id="welcomeUser" style="text-align: center;width: 100%;position:absolute;bottom:0"></h5>
     </div>

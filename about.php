@@ -41,28 +41,10 @@
     <div class="row">
         <?php require("sidenav.php"); ?>
         <div class="col-lg-9 col-md-9" id="mainContainer">
-            <div id="mainCategory">
-                <div class="multiple-items">
-                    <div class="d-flex justify-content-center align-items-center items text-white"><h1 style="text-shadow:1px 1px 1px #000">This is a test statement.</h1></div>
-                    <div class="d-flex justify-content-center align-items-center items text-white"><h1 style="text-shadow:1px 1px 1px #000">This is a test statement.</h1></div>
-                    <div class="d-flex justify-content-center align-items-center items text-white"><h1 style="text-shadow:1px 1px 1px #000">This is a test statement.</h1></div>
-                    <div class="d-flex justify-content-center align-items-center items text-white"><h1 style="text-shadow:1px 1px 1px #000">This is a test statement.</h1></div>
-                </div>
-                <ul class=" gridViewList">
-
-                </ul>
-            </div>
-            <div id="subCategory" class="row" style="display:none">
-                <div class="col-lg-3 col-md-3" id="subCategoryList">
-                    <p>Choose a semester</p>
-                    <ul>
-
-                    </ul>
-                </div>
-                <div class="col-lg-9 col-md-9" id="subCategoryExpand">
-                    <ul class="gridViewList gridViewList2 d-flex" style="list-style:none">
-
-                    </ul>
+            <div class="container">
+                <div class="bg-white m-4 p-4">
+                    <h2 class="pb-2 mb-4" style="border-bottom:1px solid #aaa">About Us</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </div>
         </div>
