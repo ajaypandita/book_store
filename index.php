@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Book Worm</title>
+    <style>
+        .multiple-items {
+
+        }
+        .items {
+            background-image: url('/images/slider2.jpg');
+            background-size: cover;
+            background-position: 0 -100px;
+            height: 400px !important;
+        }
+    </style>
 </head>
 <body>
     <div class="loader d-flex justify-content-center align-items-center flex-column">
@@ -16,6 +27,12 @@
         <?php require("sidenav.php"); ?>
         <div class="col-lg-9 col-md-9" id="mainContainer">
             <div id="mainCategory">
+                <div class="multiple-items">
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                    <div class="items"></div>
+                </div>
                 <ul class=" gridViewList">
 
                 </ul>
@@ -24,14 +41,7 @@
                 <div class="col-lg-3 col-md-3" id="subCategoryList">
                     <p>Choose a semester</p>
                     <ul>
-                        <li class="chooseSemesterLink">Semester 1</li>
-                        <li class="chooseSemesterLink">Semester 2</li>
-                        <li class="chooseSemesterLink">Semester 3</li>
-                        <li class="chooseSemesterLink">Semester 4</li>
-                        <li class="chooseSemesterLink">Semester 5</li>
-                        <li class="chooseSemesterLink">Semester 6</li>
-                        <li class="chooseSemesterLink">Semester 7</li>
-                        <li class="chooseSemesterLink">Semester 8</li>
+
                     </ul>
                 </div>
                 <div class="col-lg-9 col-md-9" id="subCategoryExpand">
@@ -55,6 +65,9 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase-database.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/js/main.js"></script>
     <script>
     var _mainCategory=[];
@@ -103,6 +116,14 @@
             console.log("Clicked 2");
             _semesterTemp=$(this).attr("rel");
             showSubCategory(_semesterTemp);
+        });
+        $('.multiple-items').slick({
+            infinite: true,
+            autoplay:true,
+            dots:true,
+            autoplaySpeed:2000,
+            slidesToShow: 1,
+            slidesToScroll: 1
         });
     });
     </script>
