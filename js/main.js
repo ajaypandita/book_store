@@ -248,7 +248,7 @@ var _content={
 			"OOPs",
 			"Engineering Graphics",
 			"Differential equations",
-			"Applied physics,
+			"Applied physics",
             ],
             3:[
             "Kinematics",
