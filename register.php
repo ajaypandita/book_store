@@ -84,7 +84,7 @@
                     var _tempEmail=_email;
                     _email=_email.trim().replace(".","_");
                     var _user={
-                            "full_name":_fullname,
+                            "fullname":_fullname,
                             "email":_tempEmail,
                             "phone":_phone,
                             "address":_address,

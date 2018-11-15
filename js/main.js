@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         console.log(_email)
         firebase.database().ref().child("/users/"+_email+"/details/").on("value",(_snapshot)=>{
             _userDetails=_snapshot.val();
-            $("#welcomeUser").text("Welcome  "+_userDetails.full_name)
+            $("#welcomeUser").text("Welcome  "+_userDetails.fullname)
         })
     } else {
         $("body .loader").attr("style", "display: none !important")
