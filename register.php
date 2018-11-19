@@ -59,10 +59,10 @@
                         <option value="Uttar Pradesh">Uttar Pradesh</option>
                         <option value="West Bengal">West Bengal</option>
                     </select>
-                    <input type="number" placeholder="Pincode" id='loginPincode' min="0" pattern="[0-9]{6}" required>
+                    <input type="text" placeholder="Pincode" id='loginPincode' min="0" pattern="[0-9]{6}" required>
                 </div>
                 <div class="col-xl-6 col-md-6">
-                    <input type="number" placeholder="Phone Number" id='loginPhone' pattern="[0-9]{10}" min="0" required>
+                    <input type="text" placeholder="Phone Number" id='loginPhone' pattern="[0-9]{10}"  required>
                     <input type="email" placeholder="Email ID" id='loginEmail' required>
                     <input type="password" placeholder="Password" id='loginPassword' required>
                     <input type="password" placeholder="Re-enter Password" id="loginRpassword" required>
