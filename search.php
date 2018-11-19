@@ -61,7 +61,8 @@
                         for(var _sub in _data[_main][_sem]) {
                             for(var _node in _data[_main][_sem][_sub]) {
                                 var _array=_data[_main][_sem][_sub]
-                                if(_array[_node].name.toLowerCase().indexOf(_val) > 0 || _array[_node].course.toLowerCase().indexOf(_val) > 0 || _array[_node].subject.toLowerCase().indexOf(_val) > 0) {
+                                console.log(_array[_node].name+" | "+_val+" | "+(_array[_node].name.indexOf(_val)));
+                                if(_array[_node].name.toLowerCase().indexOf(_val.toLowerCase()) > -1 || _array[_node].course.toLowerCase().indexOf(_val) > -1 || _array[_node].subject.toLowerCase().indexOf(_val) > -1) {
                                     console.log("Book found");
                                     console.log(_node);
                                     $("#mainCategory ul").append("<li>\
@@ -72,7 +73,7 @@
                                     <a href='viewBook.php?main="+_array[_node].course+"&sem="+(_array[_node].semester-1)+"&sub="+_array[_node].subject+"&node="+_node+"'  class='text-primary chooseMainCategory'><i class='fa fa-link mr-2'></i>Show Details</a>\
                                     </div>\
                                     </li>");
-                                    _count++;
+                                    _count+=1;
                                 }
                             }
                         }

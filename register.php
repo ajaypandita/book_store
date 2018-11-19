@@ -22,17 +22,54 @@
                 <div class="col-xl-6 col-md-6">
                     <input type="text" placeholder="Full Name" id='loginFullName' required>
                     <input type="text" placeholder="Address" id='loginAddress' required>
-                    <input type="text" placeholder="State" id='loginState' required>
+                    <select name="stateslist" id="loginState">
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Orissa">Orissa</option>
+                        <option value="Pondicherry">Pondicherry</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttaranchal">Uttaranchal</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
                     <input type="number" placeholder="Pincode" id='loginPincode' min="0" pattern="[0-9]{6}" required>
                 </div>
                 <div class="col-xl-6 col-md-6">
-                    <input type="number" placeholder="Phone Number" id='loginPhone' pattern="[0-9]{10,}" min="0" required>
+                    <input type="number" placeholder="Phone Number" id='loginPhone' pattern="[0-9]{10}" min="0" required>
                     <input type="email" placeholder="Email ID" id='loginEmail' required>
                     <input type="password" placeholder="Password" id='loginPassword' required>
                     <input type="password" placeholder="Re-enter Password" id="loginRpassword" required>
                 </div>
                 <input type="submit" value="Register" class="mt-3" id='registerBtn'>
             </div>
+            <a class="text-center" href="/login.php">Already a member? Login now.</a>
         </form>
     </div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -84,12 +121,12 @@
                     var _tempEmail=_email;
                     _email=_email.trim().replace(".","_");
                     var _user={
-                            "fullname":_fullname,
-                            "email":_tempEmail,
-                            "phone":_phone,
-                            "address":_address,
-                            "state":_state,
-                            "pincode":_pincode
+                        "fullname":_fullname,
+                        "email":_tempEmail,
+                        "phone":_phone,
+                        "address":_address,
+                        "state":_state,
+                        "pincode":_pincode
                     };
                     database.ref().child("users").child(_email).child("details").set(_user);
                     $(".loader").attr("style","display: none !important");

@@ -19,6 +19,11 @@ firebase.auth().onAuthStateChanged(function(user) {
         firebase.database().ref().child("/users/"+_email+"/details/").on("value",(_snapshot)=>{
             _userDetails=_snapshot.val();
             $("#welcomeUser").text("Welcome  "+_userDetails.fullname)
+            $("#profileName").val(_userDetails.fullname)
+            $("#profilePincode").val(_userDetails.pincode)
+            $("#profileAddress").val(_userDetails.address)
+            $("#profilePhone").val(_userDetails.phone)
+            $("#profileState option[value='"+_userDetails.state+"']").attr("selected",true)
         })
     } else {
         $("body .loader").attr("style", "display: none !important")

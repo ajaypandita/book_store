@@ -241,7 +241,7 @@
     display: flex;
     flex-direction: column;
 }
-#loginForm input,#registerForm input {
+#loginForm input,#registerForm input,#registerForm select {
     width: 350px;
     margin: 0 auto 10px;
     border-radius: 30px;
@@ -250,7 +250,10 @@
     border: 1px solid #fff;
     padding: 20px;
 }
-#loginForm input:focus,#registerForm input:focus {
+#registerForm select {
+    -webkit-appearance:none;
+}
+#loginForm input:focus,#registerForm input:focus,#registerForm select {
     box-shadow: 0;
     outline: 0;
 }
